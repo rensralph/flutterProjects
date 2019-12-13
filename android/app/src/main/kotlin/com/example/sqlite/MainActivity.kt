@@ -1,4 +1,4 @@
-package com.example.base
+package com.example.sqlite
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
