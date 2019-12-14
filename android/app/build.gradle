@@ -49,6 +49,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
 
     buildTypes {
         release {
@@ -71,4 +72,3 @@ dependencies {
     //implementation 'com.google.firebase:firebase-analytics:17.2.0'
 }
 apply plugin: 'com.google.gms.google-services'
-}
