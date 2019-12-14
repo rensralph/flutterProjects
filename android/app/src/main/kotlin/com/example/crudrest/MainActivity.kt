@@ -1,4 +1,4 @@
-package com.example.base
+package com.example.crudrest
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
