@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "121544725257",
+    "firebase_url": "https://paiubeta.firebaseio.com",
+    "project_id": "paiubeta",
+    "storage_bucket": "paiubeta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121544725257:android:b5e2431529a783378df9d8",
+        "android_client_info": {
+          "package_name": "com.example.paiubeta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121544725257-rbsj46mqnfhl5rjv5d349ta49rgevjfp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvDuOYxETylCMy325qRlo2f3qLepDsXBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121544725257-rbsj46mqnfhl5rjv5d349ta49rgevjfp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
