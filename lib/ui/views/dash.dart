@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:base/core/services/auth-service.dart';
 
 final Color backgroundColor = Color(0xFF4A4A58);
-class DashboardMain extends StatefulWidget {
-  DashboardMain({Key key, this.auth, this.userId, this.logoutCallback})
-      : super(key: key);
 
-  final BaseAuth auth;
-  final VoidCallback logoutCallback;
-  final String userId;
-
+class MenuDashboardPage extends StatefulWidget {
   @override
-  _DashboardMainState createState() => _DashboardMainState();
+  _MenuDashboardPageState createState() => _MenuDashboardPageState();
 }
 
-class _DashboardMainState extends State<DashboardMain> with SingleTickerProviderStateMixin {
+class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTickerProviderStateMixin {
   bool isCollapsed = true;
   double screenWidth, screenHeight;
   final Duration duration = const Duration(milliseconds: 300);
@@ -37,22 +30,16 @@ class _DashboardMainState extends State<DashboardMain> with SingleTickerProvider
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     screenHeight = size.height;
     screenWidth = size.width;
+
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              widget.auth.signOut();
-              widget.logoutCallback();
-            },
-            child: Icon(
-              Icons.exit_to_app,
-              color: Colors.white,
-            )),
-        body:  Stack(
+      backgroundColor: backgroundColor,
+      body: Stack(
         children: <Widget>[
           menu(context),
           dashboard(context),
@@ -61,7 +48,7 @@ class _DashboardMainState extends State<DashboardMain> with SingleTickerProvider
     );
   }
 
-Widget menu(context) {
+  Widget menu(context) {
     return SlideTransition(
       position: _slideAnimation,
       child: ScaleTransition(
@@ -77,13 +64,13 @@ Widget menu(context) {
               children: <Widget>[
                 Text("Dashboard", style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Messages", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Memo", style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Utility Bills", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Schedule", style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Funds Transfer", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Journal", style: TextStyle(color: Colors.white, fontSize: 22)),
                 SizedBox(height: 10),
-                Text("Branches", style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text("Navigation", style: TextStyle(color: Colors.white, fontSize: 22)),
               ],
             ),
           ),
@@ -183,4 +170,3 @@ Widget menu(context) {
     );
   }
 }
-
