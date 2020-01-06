@@ -19,20 +19,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #for splashscreen
   splashscreen: ^1.2.0
-  fluttertoast: ^3.1.0
+  #forglowing avatar
   avatar_glow: ^1.0.0
+  #for login/signup firebase
+  fluttertoast: ^3.1.0
   firebase_auth: ^0.14.0
   firebase_core: ^0.4.0
   firebase_database: ^3.0.7
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  #for navigation
+  google_maps_flutter: ^0.5.11
+  geolocator: ^5.0.0
+  #for memo
+  flutter_staggered_grid_view: ^0.2.7
+  auto_size_text: ^1.1.2
+  sqflite:
+  path:
+  intl: ^0.15.7
+  share: ^0.6.1
+ 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+ #scheduler
+  charts_flutter: ^0.5.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
