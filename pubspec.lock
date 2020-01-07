@@ -58,7 +58,7 @@ packages:
     source: hosted
     version: "0.5.0"
   charts_flutter:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: charts_flutter
       url: "https://pub.dartlang.org"
