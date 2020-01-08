@@ -24,6 +24,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     with AutomaticKeepAliveClientMixin<DashboardScreen> {
   AuthStatus authStatus = AuthStatus.NOT_DETERMINED;
   String _userId = "";
+  String _userEmail = "";
 
   @override
   bool get wantKeepAlive => true;
@@ -46,6 +47,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     widget.auth.getCurrentUser().then((user) {
       setState(() {
         _userId = user.uid.toString();
+        _userEmail = user.email;
       });
     });
     setState(() {
@@ -86,6 +88,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         if (_userId.length > 0 && _userId != null) {
           return DashboardMain(
             userId: _userId,
+            userEmail: _userEmail,
             auth: widget.auth,
             logoutCallback: logoutCallback,
           );

@@ -1,104 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:base/ui/viewContoller/StaggeredView.dart';
-import 'package:base/core/models/Note.dart';
-import 'package:base/ui/viewContoller/NotePage.dart';
-import 'package:base/core/models/Utility.dart';
-
-enum viewType {
-  List,
-  Staggered
-}
+import 'package:base/memo/services/sharedPref.dart';
+import 'package:base/memo/screens/home.dart';
+import 'package:base/memo/data/theme.dart';
 
 
 class MemoPage extends StatefulWidget {
+  // This widget is the root of your application.
   @override
   _MemoPageState createState() => _MemoPageState();
 }
 
 class _MemoPageState extends State<MemoPage> {
-
-  var notesViewType ;
-  @override void initState() {
-    notesViewType = viewType.Staggered;
+  ThemeData theme = appThemeLight;
+  @override
+  void initState() {
+    super.initState();
+    updateThemeFromSharedPref();
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return
-       Scaffold(
-      resizeToAvoidBottomPadding: false,
-      appBar: AppBar(brightness: Brightness.light,
-        actions: _appBarActions(),
-        elevation: 1,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Text("Notes"),
-      ),
-      body: SafeArea(child:   _body(), right: true, left:  true, top: true, bottom: true,),
-      bottomSheet: _bottomBar(),
-    );
-
-  }
-
-  Widget _body() {
-    print(notesViewType);
-    return Container(child: StaggeredGridPage(notesViewType: notesViewType,));
-  }
-
-  Widget _bottomBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        FlatButton(
-          child: Text(
-            "New Note\n",
-            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
-          ),
-          onPressed: () => _newNoteTapped(context),
-        )
-      ],
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: theme,
+      home: MyHomePage(title: 'Home', changeTheme: setTheme),
     );
   }
 
-
-  void _newNoteTapped(BuildContext ctx) {
-    // "-1" id indicates the note is not new
-    var emptyNote = new Note(-1, "", "", DateTime.now(), DateTime.now(), Colors.white);
-    Navigator.push(ctx,MaterialPageRoute(builder: (ctx) => NotePage(emptyNote)));
+  setTheme(Brightness brightness) {
+    if (brightness == Brightness.dark) {
+      setState(() {
+        theme = appThemeDark;
+      });
+    } else {
+      setState(() {
+        theme = appThemeLight;
+      });
+    }
   }
 
-  void _toggleViewType(){
-    setState(() {
-      CentralStation.updateNeeded = true;
-      if(notesViewType == viewType.List)
-        {
-          notesViewType = viewType.Staggered;
-
-        } else {
-        notesViewType = viewType.List;
-      }
-
-    });
+  void updateThemeFromSharedPref() async {
+    String themeText = await getThemeFromSharedPref();
+    if (themeText == 'light') {
+      setTheme(Brightness.light);
+    } else {
+      setTheme(Brightness.dark);
+    }
   }
-
-List<Widget> _appBarActions() {
-
-    return [
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12),
-        child: InkWell(
-          child: GestureDetector(
-            onTap: () => _toggleViewType() ,
-            child: Icon(
-              notesViewType == viewType.List ?  Icons.developer_board : Icons.view_headline,
-              color: CentralStation.fontColor,
-            ),
-          ),
-        ),
-      ),
-    ];
-}
-
-
 }

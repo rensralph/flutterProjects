@@ -74,7 +74,6 @@ class _LoginAnimateState extends State<LoginAnimate>
                   ),
                   delay: delayedAmount + 500,
                 ),
-                
                 DelayedAnimation(
                   child: GestureDetector(
                     onTapDown: _onTapDown,
