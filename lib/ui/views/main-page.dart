@@ -50,31 +50,6 @@ class _DashboardMainState extends State<DashboardMain> {
                     ]
                   )
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    FadeAnimation(1, Text("What you would like to find?", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),)),
-                    SizedBox(height: 30,),
-                    FadeAnimation(1.3, Container(
-                      padding: EdgeInsets.symmetric(vertical: 3),
-                      margin: EdgeInsets.symmetric(horizontal: 40),
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.white,
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search, color: Colors.grey,),
-                          hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                          hintText: "Search for cities, places ..."
-                        ),
-                      ),
-                    )),
-                    SizedBox(height: 30,)
-                  ],
-                ),
               ),
             ),
             SizedBox(height: 30,),
@@ -96,8 +71,8 @@ class _DashboardMainState extends State<DashboardMain> {
                         makeItem(image: 'assets/images/united-states.jpg', title: 'United States')
                       ],
                     ),
-                  )),
-
+                  )
+                  ),
                   SizedBox(height: 20,),
                   FadeAnimation(1, Text("Best Hotels", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[800], fontSize: 20),)),
                   SizedBox(height: 20,),                
@@ -132,7 +107,8 @@ class _DashboardMainState extends State<DashboardMain> {
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
             image: AssetImage(image),
-            fit: BoxFit.cover
+            fit: BoxFit.cover,
+            
           )
         ),
         child: Container(
