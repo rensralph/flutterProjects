@@ -1,6 +1,5 @@
 import 'package:base/core/models/animation.dart';
 import 'package:base/ui/pages/journal.dart';
-import 'package:base/ui/pages/memo.dart';
 import 'package:flutter/material.dart';
 import 'package:base/core/services/auth-service.dart';
 import 'package:base/ui/shared/menuclipper.dart';
@@ -36,73 +35,75 @@ class _DashboardMainState extends State<DashboardMain> {
       ),
       drawer: buildDrawer(),
       backgroundColor: Colors.grey[100],
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              height: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/background.jpg'),
-                    fit: BoxFit.cover),
-              ),
-              child: Container(
+      body: Stack(
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                height: 300,
                 decoration: BoxDecoration(
-                    gradient:
-                        LinearGradient(begin: Alignment.bottomRight, colors: [
-                  Colors.black.withOpacity(.8),
-                  Colors.black.withOpacity(.2),
-                ])),
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/background.jpg'),
+                      fit: BoxFit.cover),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                      gradient:
+                          LinearGradient(begin: Alignment.bottomRight, colors: [
+                    Colors.black.withOpacity(.8),
+                    Colors.black.withOpacity(.2),
+                  ])),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  FadeAnimation(
-                      1,
-                      Text(
-                        "Choose an option:",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[800],
-                            fontSize: 20),
-                      )),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  FadeAnimation(
-                      1.4,
-                      Container(
-                        height: 200,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: <Widget>[
-                            makeItem(
-                                image: 'assets/images/canada.jpg',
-                                title: 'Memo'),
-                            makeItem(
-                                image: 'assets/images/Italy.jpg',
-                                title: 'Journal'),
-                            makeItem(
-                                image: 'assets/images/greece.jpg',
-                                title: 'Schedule'),
-                            makeItem(
-                                image: 'assets/images/united-states.jpg',
-                                title: 'Navigation')
-                          ],
-                        ),
-                      )),
-                ],
+              SizedBox(
+                height: 30,
               ),
-            )
-          ],
-        ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    FadeAnimation(
+                        1,
+                        Text(
+                          "Choose an option:",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[800],
+                              fontSize: 20),
+                        )),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    FadeAnimation(
+                        1.4,
+                        Container(
+                          height: 200,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              makeItem(
+                                  image: 'assets/images/canada.jpg',
+                                  title: 'Memo'),
+                              makeItem(
+                                  image: 'assets/images/Italy.jpg',
+                                  title: 'Journal'),
+                              makeItem(
+                                  image: 'assets/images/greece.jpg',
+                                  title: 'Schedule'),
+                              makeItem(
+                                  image: 'assets/images/united-states.jpg',
+                                  title: 'Navigation')
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -284,7 +285,7 @@ class _DashboardMainState extends State<DashboardMain> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MemoPage()));
+            MaterialPageRoute(builder: (context) => MapsDemo()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [

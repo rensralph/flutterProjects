@@ -7,23 +7,29 @@ class NotesModel {
   bool isImportant;
   DateTime date;
 
+  static const String ID = '_id';
+  static const String TITLE = 'title';
+  static const String CONTENT = 'content';
+  static const String ISIMPORTANT = 'isImportant';
+  static const String DATE = 'date';
+
   NotesModel({this.id, this.title, this.content, this.isImportant, this.date});
 
   NotesModel.fromMap(Map<String, dynamic> map) {
-    this.id = map['_id'];
-    this.title = map['title'];
-    this.content = map['content'];
-    this.isImportant = map['isImportant'] == 1 ? true : false;
-    this.date = DateTime.parse(map['date']);
+    this.id = map[ID];
+    this.title = map[TITLE];
+    this.content = map[CONTENT];
+    this.isImportant = map[ISIMPORTANT] == 1 ? true : false;
+    this.date = DateTime.parse(map[DATE]);
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      '_id': this.id,
-      'title': this.title,
-      'content': this.content,
-      'isImportant': this.isImportant == true ? 1 : 0,
-      'date': this.date.toIso8601String()
+      ID : this.id,
+      TITLE : this.title,
+      CONTENT : this.content,
+      ISIMPORTANT : this.isImportant == true ? 1 : 0,
+      DATE : this.date.toIso8601String()
     };
   }
 

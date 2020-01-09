@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:base/core/services/auth-service.dart';
 import 'package:base/ui/pages/journal.dart';
-import 'package:base/ui/pages/memo.dart';
 import 'package:base/ui/pages/navigation.dart';
 import 'package:base/ui/shared/menuclipper.dart';
 import 'package:base/ui/views/main-page.dart';
@@ -470,7 +469,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MemoPage()));
+            MaterialPageRoute(builder: (context) => MapsDemo()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [

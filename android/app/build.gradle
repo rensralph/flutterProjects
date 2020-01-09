@@ -44,7 +44,7 @@ android {
          //Added multiDexEnabled to fix multiple plugins in an empty app exceeds the Android
         // issue reference:https://github.com/flutter/flutter/issues/20747
         // new configuration added multiDexEnabled true
-        //multiDexEnabled true
+        multiDexEnabled true
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

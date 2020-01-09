@@ -73,7 +73,7 @@ class NotesDatabaseService {
 
   deleteNoteInDB(NotesModel noteToDelete) async {
     final db = await database;
-    await db.delete('Notes', where: '$columnId = ?', whereArgs: [noteToDelete.id]);
+    await db.delete(table, where: '$columnId = ?', whereArgs: [noteToDelete.id]);
     print('Note deleted');
   }
 
@@ -83,7 +83,6 @@ class NotesDatabaseService {
     int id = await db.transaction((transaction) => transaction.rawInsert(
         'INSERT into $table ($columnTitle, $columnContent, $columnIsImportant, $columnDate ) VALUES ("${newNote.title}", "${newNote.content}", "${newNote.isImportant == true ? 1 : 0}", "${newNote.date.toIso8601String()}");'));
     newNote.id = id;
-    print('Note added: ${newNote.title} ${newNote.content}');
     return newNote;
   }
 }

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'memo.dart';
 
 class MapsDemo extends StatefulWidget {
   MapsDemo(
@@ -247,7 +246,7 @@ class MapsDemoState extends State<MapsDemo> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MemoPage()));
+            MaterialPageRoute(builder: (context) => MapsDemo()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
@@ -267,7 +266,7 @@ class MapsDemoState extends State<MapsDemo> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MemoPage()));
+            MaterialPageRoute(builder: (context) => MapsDemo()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
