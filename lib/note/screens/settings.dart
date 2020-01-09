@@ -3,13 +3,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:base/core/services/sharedPref.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 
 class SettingsPage extends StatefulWidget {
-  
-  SettingsPage({Key key, this.changeTheme})
-      : super(key: key);
+  SettingsPage({Key key, this.changeTheme}) : super(key: key);
   final Function(Brightness brightness) changeTheme;
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -132,6 +129,5 @@ class _SettingsPageState extends State<SettingsPage> {
     } else {
       widget.changeTheme(Brightness.dark);
     }
-    setThemeinSharedPref(value);
   }
 }

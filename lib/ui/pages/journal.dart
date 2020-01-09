@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:base/core/services/sharedPref.dart';
 import 'package:base/note/screens/home.dart';
 import 'package:base/note/data/theme.dart';
 
@@ -14,7 +13,6 @@ class _NotePageState extends State<NotePage> {
   @override
   void initState() {
     super.initState();
-    updateThemeFromSharedPref();
   }
 
   @override
@@ -34,15 +32,6 @@ class _NotePageState extends State<NotePage> {
       setState(() {
         theme = appThemeLight;
       });
-    }
-  }
-
-  void updateThemeFromSharedPref() async {
-    String themeText = await getThemeFromSharedPref();
-    if (themeText == 'light') {
-      setTheme(Brightness.light);
-    } else {
-      setTheme(Brightness.dark);
     }
   }
 }
