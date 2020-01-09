@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:base/core/services/auth-service.dart';
 import 'package:base/ui/shared/menuclipper.dart';
 import 'package:base/ui/pages/navigation.dart';
-import 'package:base/ui/pages/memo.dart';
 //import 'package:base/ui/pages/scheduler.dart';
 
 class DashboardMain extends StatefulWidget {
@@ -175,7 +174,7 @@ class _DashboardMainState extends State<DashboardMain> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MemoPage()));
+            MaterialPageRoute(builder: (context) => MapsDemo()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
