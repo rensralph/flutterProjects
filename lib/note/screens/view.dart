@@ -8,15 +8,14 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:base/note/data/models.dart';
 import 'package:base/note/screens/edit.dart';
-import 'package:base/note/services/database.dart';
+import 'package:base/core/services/database.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 import 'package:share/share.dart';
 
 class ViewNotePage extends StatefulWidget {
- 
   ViewNotePage({Key key, this.triggerRefetch, this.currentNote})
       : super(key: key);
-  
+
   final Function triggerRefetch;
   final NotesModel currentNote;
 

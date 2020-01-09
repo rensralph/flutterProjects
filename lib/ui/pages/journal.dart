@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:base/note/services/sharedPref.dart';
+import 'package:base/core/services/sharedPref.dart';
 import 'package:base/note/screens/home.dart';
 import 'package:base/note/data/theme.dart';
 

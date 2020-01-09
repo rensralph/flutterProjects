@@ -13,14 +13,20 @@ import 'package:base/note/components/faderoute.dart';
 import 'package:base/note/data/models.dart';
 import 'package:base/note/screens/edit.dart';
 import 'package:base/note/screens/view.dart';
-import 'package:base/note/services/database.dart';
+import 'package:base/core/services/database.dart';
 import 'settings.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 import '../components/cards.dart';
 
 class MyHomePage extends StatefulWidget {
-  
-  MyHomePage({Key key, this.title, this.auth, this.userId, this.logoutCallback, this.userEmail, this.changeTheme})
+  MyHomePage(
+      {Key key,
+      this.title,
+      this.auth,
+      this.userId,
+      this.logoutCallback,
+      this.userEmail,
+      this.changeTheme})
       : super(key: key);
 
   final Function(Brightness brightness) changeTheme;
@@ -337,8 +343,8 @@ class _MyHomePageState extends State<MyHomePage> {
       isSearchEmpty = true;
     });
   }
-  
-   Widget buildDrawer() {
+
+  Widget buildDrawer() {
     final String _img = "assets/logo.png";
     return ClipPath(
       clipper: MenuClipper(),

@@ -3,9 +3,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:base/note/services/sharedPref.dart';
+import 'package:base/core/services/sharedPref.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatefulWidget {
   
@@ -86,79 +85,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ],
               )),
-              buildCardWidget(Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text('About app',
-                      style: TextStyle(
-                          fontFamily: 'ZillaSlab',
-                          fontSize: 24,
-                          color: Theme.of(context).primaryColor)),
-                  Container(
-                    height: 40,
-                  ),
-                  Center(
-                    child: Text('Developed by'.toUpperCase(),
-                        style: TextStyle(
-                            color: Colors.grey.shade600,
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 1)),
-                  ),
-                  Center(
-                      child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
-                    child: Text(
-                      'Roshan',
-                      style: TextStyle(fontFamily: 'ZillaSlab', fontSize: 24),
-                    ),
-                  )),
-                  Container(
-                    alignment: Alignment.center,
-                    child: OutlineButton.icon(
-                      icon: Icon(OMIcons.link),
-                      label: Text('GITHUB',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              color: Colors.grey.shade500)),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      onPressed: openGitHub,
-                    ),
-                  ),
-                  Container(
-                    height: 30,
-                  ),
-                  Center(
-                    child: Text('Made With'.toUpperCase(),
-                        style: TextStyle(
-                            color: Colors.grey.shade600,
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 1)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          FlutterLogo(
-                            size: 40,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Flutter',
-                              style: TextStyle(
-                                  fontFamily: 'ZillaSlab', fontSize: 24),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ))
             ],
           ))
         ],
@@ -207,9 +133,5 @@ class _SettingsPageState extends State<SettingsPage> {
       widget.changeTheme(Brightness.dark);
     }
     setThemeinSharedPref(value);
-  }
-
-  void openGitHub() {
-    launch('https://www.github.com/roshanrahman');
   }
 }

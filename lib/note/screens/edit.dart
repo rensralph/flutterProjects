@@ -7,7 +7,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/painting.dart' as prefix0;
 import 'package:flutter/widgets.dart';
 import 'package:base/note/data/models.dart';
-import 'package:base/note/services/database.dart';
+import 'package:base/core/services/database.dart';
 
 class EditNotePage extends StatefulWidget {
  
