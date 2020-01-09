@@ -1,8 +1,11 @@
 import 'package:base/core/services/auth-service.dart';
 import 'package:base/ui/shared/menuclipper.dart';
+import 'package:base/ui/views/main-page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'memo.dart';
 
 class MapsDemo extends StatefulWidget {
   MapsDemo(
@@ -151,7 +154,7 @@ class MapsDemoState extends State<MapsDemo> {
                   style: TextStyle(color: Colors.white, fontSize: 18.0),
                 ),
                 SizedBox(height: 30.0),
-                _buildRow(Icons.home, "Home"),
+                _buildRow1(Icons.home, "Home"),
                 _buildDivider(),
                 _buildRow2(Icons.note, "Memo"),
                 _buildDivider(),
@@ -263,7 +266,7 @@ class MapsDemoState extends State<MapsDemo> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => MemoPage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
@@ -277,11 +280,14 @@ class MapsDemoState extends State<MapsDemo> {
     );
   }
 
-  Widget _buildRow(IconData icon, String title) {
+  Widget _buildRow1(IconData icon, String title) {
     final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
 
     return FlatButton(
-      onPressed: () {},
+      onPressed: () {
+         Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => DashboardMain()));
+      },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
         Icon(icon, color: Colors.blue[200]),

@@ -1,3 +1,4 @@
+import 'package:base/ui/pages/memo.dart';
 import 'package:flutter/material.dart';
 import 'package:base/core/services/auth-service.dart';
 import 'package:base/ui/shared/menuclipper.dart';
@@ -174,7 +175,7 @@ class _DashboardMainState extends State<DashboardMain> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => MemoPage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
