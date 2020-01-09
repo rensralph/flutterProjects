@@ -1,4 +1,5 @@
 import 'package:base/core/services/auth-service.dart';
+import 'package:base/ui/pages/journal.dart';
 import 'package:base/ui/shared/menuclipper.dart';
 import 'package:base/ui/views/main-page.dart';
 import 'package:flutter/material.dart';
@@ -226,7 +227,7 @@ class MapsDemoState extends State<MapsDemo> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => NotePage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
@@ -246,7 +247,7 @@ class MapsDemoState extends State<MapsDemo> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => MemoPage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [

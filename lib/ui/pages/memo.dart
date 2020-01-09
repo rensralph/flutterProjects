@@ -1,4 +1,5 @@
 import 'package:base/core/services/auth-service.dart';
+import 'package:base/ui/pages/journal.dart';
 import 'package:base/ui/pages/navigation.dart';
 import 'package:base/ui/shared/menuclipper.dart';
 import 'package:base/ui/views/main-page.dart';
@@ -312,7 +313,7 @@ class _MemoPageState extends State<MemoPage> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => NotePage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
@@ -332,7 +333,7 @@ class _MemoPageState extends State<MemoPage> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => MemoPage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
