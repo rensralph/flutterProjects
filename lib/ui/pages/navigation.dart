@@ -146,6 +146,17 @@ class MapsDemoState extends State<MapsDemo> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                 Container(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.power_settings_new,
+                    color: Colors.blue[200],
+                  ),
+                  onPressed: () =>
+                      Navigator.of(context).pushReplacementNamed('/auth'),
+                ),
+              ),
                 Container(
                   height: 90,
                   alignment: Alignment.center,

@@ -1,4 +1,4 @@
-//import 'package:base/core/models/animation.dart';
+import 'package:base/core/models/animation.dart';
 import 'package:base/ui/pages/journal.dart';
 import 'package:flutter/material.dart';
 import 'package:base/core/services/auth-service.dart';
@@ -35,10 +35,8 @@ class _DashboardMainState extends State<DashboardMain> {
       ),
       drawer: buildDrawer(),
       backgroundColor: Colors.grey[100],
-      body: DashboardMain(),
-      /*Stack(
-        children: <Widget>[
-          Column(
+      body: SingleChildScrollView(
+        child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
@@ -88,7 +86,7 @@ class _DashboardMainState extends State<DashboardMain> {
                                   image: 'assets/images/canada.jpg',
                                   title: 'Memo'),
                               makeItem(
-                                  image: 'assets/images/Italy.jpg',
+                                  image: 'assets/images/italy.jpg',
                                   title: 'Journal'),
                               makeItem(
                                   image: 'assets/images/greece.jpg',
@@ -104,8 +102,7 @@ class _DashboardMainState extends State<DashboardMain> {
               )
             ],
           ),
-        ],
-      ),*/
+      ),
     );
   }
 
@@ -286,7 +283,7 @@ class _DashboardMainState extends State<DashboardMain> {
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => NotePage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
