@@ -84,6 +84,16 @@ class MapsDemoState extends State<MapsDemo> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+         extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: new Icon(
+          Icons.menu,
+          color: Colors.black,
+        ),
+      ),
+      drawer: buildDrawer(),
         body: Stack(
           children: <Widget>[
             GoogleMap(

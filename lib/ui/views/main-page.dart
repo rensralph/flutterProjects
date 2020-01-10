@@ -1,4 +1,4 @@
-import 'package:base/core/models/animation.dart';
+//import 'package:base/core/models/animation.dart';
 import 'package:base/ui/pages/journal.dart';
 import 'package:flutter/material.dart';
 import 'package:base/core/services/auth-service.dart';
@@ -35,7 +35,8 @@ class _DashboardMainState extends State<DashboardMain> {
       ),
       drawer: buildDrawer(),
       backgroundColor: Colors.grey[100],
-      body: Stack(
+      body: DashboardMain(),
+      /*Stack(
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +105,7 @@ class _DashboardMainState extends State<DashboardMain> {
             ],
           ),
         ],
-      ),
+      ),*/
     );
   }
 
