@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:base/core/services/auth-service.dart';
-import 'package:base/ui/pages/journal.dart';
+import 'package:base/ui/pages/memo.dart';
 import 'package:base/ui/pages/navigation.dart';
+import 'package:base/ui/pages/scheduler.dart';
 import 'package:base/ui/shared/menuclipper.dart';
 import 'package:base/ui/views/main-page.dart';
 import 'package:flutter/cupertino.dart';
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   setNotesFromDB() async {
-    print("Entered setNotes");
+    print("Entered setMemos");
     var fetchedNotes = await NotesDatabaseService.db.getNotesFromDB();
     setState(() {
       notesList = fetchedNotes;
@@ -65,22 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: new Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
-      ),
+      appBar: AppBar(),
       drawer: buildDrawer(),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {
           gotoEditNote();
         },
-        label: Text('Add note'.toUpperCase()),
+        label: Text('Add memo'.toUpperCase()),
         icon: Icon(Icons.add),
       ),
       body: GestureDetector(
@@ -156,11 +149,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: isFlagOn ? Colors.white : Colors.grey.shade300,
               ),
               decoration: BoxDecoration(
-                  color: isFlagOn ? Colors.blue : Colors.transparent,
+                  color: isFlagOn ? Colors.green : Colors.transparent,
                   border: Border.all(
                     width: isFlagOn ? 2 : 1,
                     color:
-                        isFlagOn ? Colors.blue.shade700 : Colors.grey.shade300,
+                        isFlagOn ? Colors.green.shade700 : Colors.grey.shade300,
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(16))),
             ),
@@ -193,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: InputDecoration.collapsed(
                         hintText: 'Search',
                         hintStyle: TextStyle(
-                            color: Colors.grey.shade300,
+                            color: Colors.grey.shade200,
                             fontSize: 18,
                             fontWeight: FontWeight.w500),
                         border: InputBorder.none,
@@ -223,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
           margin: EdgeInsets.only(top: 8, bottom: 32, left: 10),
           width: headerShouldHide ? 0 : 200,
           child: Text(
-            'Your Notes',
+            'Your Memo',
             style: TextStyle(
                 fontFamily: 'ZillaSlab',
                 fontWeight: FontWeight.w700,
@@ -249,9 +242,9 @@ class _MyHomePageState extends State<MyHomePage> {
       firstChild: Padding(
         padding: const EdgeInsets.only(top: 8),
         child: Text(
-          'Only showing notes marked important'.toUpperCase(),
+          'Only showing memos marked important'.toUpperCase(),
           style: TextStyle(
-              fontSize: 12, color: Colors.blue, fontWeight: FontWeight.w500),
+              fontSize: 12, color: Colors.green, fontWeight: FontWeight.w500),
         ),
       ),
       secondChild: Container(
@@ -323,7 +316,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void refetchNotesFromDB() async {
     await setNotesFromDB();
-    print("Refetched notes");
+    print("Refetched memos");
   }
 
   openNoteToRead(NotesModel noteData) async {
@@ -358,7 +351,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Container(
         padding: EdgeInsets.only(left: 16.0, right: 40),
         decoration: BoxDecoration(
-            color: Colors.blue[700],
+            color: Colors.green[700],
             boxShadow: [BoxShadow(color: Colors.black45)]),
         width: 300.0,
         height: double.maxFinite,
@@ -373,7 +366,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
-                          colors: [Colors.blue[200], Colors.blue[700]])),
+                          colors: [Colors.green[200], Colors.green[700]])),
                   child: CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage(_img),
@@ -407,12 +400,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Divider _buildDivider() {
     return Divider(
-      color: Colors.blue[200],
+      color: Colors.green[200],
     );
   }
 
   Widget _buildRow6(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -421,7 +414,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -432,7 +425,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildRow5(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -441,7 +434,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -452,16 +445,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildRow4(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => SchedulePage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -472,7 +465,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildRow3(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -481,7 +474,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -492,16 +485,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildRow2(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => NotePage()));
+            MaterialPageRoute(builder: (context) => MemoPage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -512,7 +505,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildRow(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -521,7 +514,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,

@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PAIU',
       theme: ThemeData(
-          primaryColor: Colors.greenAccent[800],
-          accentColor: Colors.blueGrey[900]),
+          primaryColor: Colors.green,
+          accentColor: Colors.greenAccent),
       initialRoute: '/',
       onGenerateRoute: Router.generateRoute,
     );

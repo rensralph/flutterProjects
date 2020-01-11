@@ -123,7 +123,7 @@ class _EditNotePageState extends State<EditNotePage> {
                       ),
                       Spacer(),
                       IconButton(
-                        tooltip: 'Mark note as important',
+                        tooltip: 'Mark memo as important',
                         icon: Icon(currentNote.isImportant
                             ? Icons.flag
                             : Icons.outlined_flag),
@@ -220,8 +220,8 @@ class _EditNotePageState extends State<EditNotePage> {
             return AlertDialog(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
-              title: Text('Delete Note'),
-              content: Text('This note will be deleted permanently'),
+              title: Text('Delete Memo'),
+              content: Text('This memo will be deleted permanently'),
               actions: <Widget>[
                 FlatButton(
                   child: Text('DELETE',

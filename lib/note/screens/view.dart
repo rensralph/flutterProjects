@@ -173,8 +173,8 @@ class _ViewNotePageState extends State<ViewNotePage> {
           return AlertDialog(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            title: Text('Delete Note'),
-            content: Text('This note will be deleted permanently'),
+            title: Text('Delete Memo'),
+            content: Text('This memo will be deleted permanently'),
             actions: <Widget>[
               FlatButton(
                 child: Text('DELETE',

@@ -1,5 +1,6 @@
 import 'package:base/core/services/auth-service.dart';
-import 'package:base/ui/pages/journal.dart';
+import 'package:base/ui/pages/memo.dart';
+import 'package:base/ui/pages/scheduler.dart';
 import 'package:base/ui/shared/menuclipper.dart';
 import 'package:base/ui/views/main-page.dart';
 import 'package:flutter/material.dart';
@@ -23,14 +24,14 @@ class MapsDemo extends StatefulWidget {
 class MapsDemoState extends State<MapsDemo> {
   //
   Completer<GoogleMapController> _controller = Completer();
-  static const LatLng _center = const LatLng(45.521563, -122.677433);
+  static const LatLng _center = const LatLng(37.422, -122.084);
   final Set<Marker> _markers = {};
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
 
   static final CameraPosition _position1 = CameraPosition(
     bearing: 192.833,
-    target: LatLng(45.531563, -122.677433),
+    target: LatLng(37.422, -122.084),
     tilt: 59.440,
     zoom: 11.0,
   );
@@ -72,7 +73,7 @@ class MapsDemoState extends State<MapsDemo> {
     return FloatingActionButton(
       onPressed: function,
       materialTapTargetSize: MaterialTapTargetSize.padded,
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.green,
       child: Icon(
         icon,
         size: 36.0,
@@ -82,17 +83,8 @@ class MapsDemoState extends State<MapsDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-         extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: new Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
-      ),
+    return Scaffold(
+      appBar: AppBar(),
       drawer: buildDrawer(),
         body: Stack(
           children: <Widget>[
@@ -127,8 +119,7 @@ class MapsDemoState extends State<MapsDemo> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 
   Widget buildDrawer() {
@@ -138,7 +129,7 @@ class MapsDemoState extends State<MapsDemo> {
       child: Container(
         padding: EdgeInsets.only(left: 16.0, right: 40),
         decoration: BoxDecoration(
-            color: Colors.blue[700],
+            color: Colors.green[700],
             boxShadow: [BoxShadow(color: Colors.black45)]),
         width: 300.0,
         height: double.maxFinite,
@@ -151,7 +142,7 @@ class MapsDemoState extends State<MapsDemo> {
                 child: IconButton(
                   icon: Icon(
                     Icons.power_settings_new,
-                    color: Colors.blue[200],
+                    color: Colors.green[200],
                   ),
                   onPressed: () =>
                       Navigator.of(context).pushReplacementNamed('/auth'),
@@ -163,7 +154,7 @@ class MapsDemoState extends State<MapsDemo> {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
-                          colors: [Colors.blue[200], Colors.blue[700]])),
+                          colors: [Colors.green[200], Colors.green[700]])),
                   child: CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage(_img),
@@ -197,12 +188,12 @@ class MapsDemoState extends State<MapsDemo> {
 
   Divider _buildDivider() {
     return Divider(
-      color: Colors.blue[200],
+      color: Colors.green[200],
     );
   }
 
   Widget _buildRow6(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -211,7 +202,7 @@ class MapsDemoState extends State<MapsDemo> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -222,7 +213,7 @@ class MapsDemoState extends State<MapsDemo> {
   }
 
   Widget _buildRow5(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -231,7 +222,7 @@ class MapsDemoState extends State<MapsDemo> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -242,16 +233,16 @@ class MapsDemoState extends State<MapsDemo> {
   }
 
   Widget _buildRow4(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => NotePage()));
+            MaterialPageRoute(builder: (context) => SchedulePage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -262,7 +253,7 @@ class MapsDemoState extends State<MapsDemo> {
   }
 
   Widget _buildRow3(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -271,7 +262,7 @@ class MapsDemoState extends State<MapsDemo> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -282,16 +273,16 @@ class MapsDemoState extends State<MapsDemo> {
   }
 
   Widget _buildRow2(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MapsDemo()));
+            MaterialPageRoute(builder: (context) => MemoPage()));
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
@@ -302,7 +293,7 @@ class MapsDemoState extends State<MapsDemo> {
   }
 
   Widget _buildRow1(IconData icon, String title) {
-    final TextStyle tStyle = TextStyle(color: Colors.blue[200], fontSize: 16.0);
+    final TextStyle tStyle = TextStyle(color: Colors.green[200], fontSize: 16.0);
 
     return FlatButton(
       onPressed: () {
@@ -311,7 +302,7 @@ class MapsDemoState extends State<MapsDemo> {
       },
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Row(children: [
-        Icon(icon, color: Colors.blue[200]),
+        Icon(icon, color: Colors.green[200]),
         SizedBox(width: 10.0),
         Text(
           title,
