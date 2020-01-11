@@ -5,7 +5,6 @@ import 'package:base/ui/pages/navigation.dart';
 import 'package:base/ui/shared/menuclipper.dart';
 import 'package:base/ui/views/main-page.dart';
 import 'package:flutter/material.dart';
-import 'package:base/journal/customIcons.dart';
 import 'package:base/journal/data.dart';
 import 'package:flutter/cupertino.dart';
 
